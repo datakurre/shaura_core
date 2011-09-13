@@ -27,7 +27,6 @@ setup(name="shaura_core", version=version,
     "zope.schema",
     "zope.interface",
     "zope.i18nmessageid",
-    "pyramid",
   ],
   extras_require = {"test": ["corejet.core"]},
 )
