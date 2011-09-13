@@ -12,7 +12,25 @@ class IObjectManager(Interface):
     """Database access utility"""
 
     def __call__(**kwargs):
-        """Simple search method"""
+        """Query for objects on datastore"""
+        pass
+
+    def add(obj):
+        """Add object to datastore"""
+        # WONTFIX: This should be alternative for triggering
+        # IObjectCreatedEvent. Nothing else. Redundant, but convenient.
+        pass
+
+    def update(obj):
+        """Update object on datastore"""
+        # WONTFIX: This should be alternative for triggering
+        # IObjectModifiedEvent. Nothing else. Redundant, but convenient.
+        pass
+
+    def delete(obj):
+        """Delete object from datastore"""
+        # WONTFIX: This should be alternative for triggering
+        # IObjectObsoletedEvent. Nothing else. Redundant, but convenient.
         pass
 
 
