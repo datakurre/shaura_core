@@ -17,25 +17,25 @@ class IObjectManager(Interface):
 
     def add(obj):
         """Add object to datastore"""
-        # WONTFIX: This should be alternative for triggering
-        # IObjectCreatedEvent. Nothing else. Redundant, but convenient.
+        # IObjectCreatedEvent should be triggered before before committing new
+        # object to datastore.
         pass
 
     def update(obj):
         """Update object on datastore"""
-        # WONTFIX: This should be alternative for triggering
-        # IObjectModifiedEvent. Nothing else. Redundant, but convenient.
+        # IObjectModifiedEvent should be triggered before committing updated
+        # object to datastore.
         pass
 
     def delete(obj):
         """Delete object from datastore"""
-        # WONTFIX: This should be alternative for triggering
-        # IObjectObsoletedEvent. Nothing else. Redundant, but convenient.
+        # IObjectObsoletedEvent should be triggered before deleting object from
+        # datastore.
         pass
 
 
 class IObject(Interface):
-    """Objects should support RESTful GET (read), PUT (update) and DELETE"""
+    """Object"""
 
     def __init__(**kwargs):
         """Objects should init their properties from **kwargs during init"""
@@ -55,11 +55,16 @@ class IObjectEvent(Interface):
 
 class IObjectCreatedEvent(Interface):
     """Object created lifecycle event"""
-
+    # IObjectCreatedEvent should be triggered before before committing new
+    # object to datastore.
 
 class IObjectModifiedEvent(Interface):
     """Object modified lifecycle event"""
+    # IObjectModifiedEvent should be triggered before committing updated object
+    # to datastore.
 
 
 class IObjectObsoletedEvent(Interface):
     """Object obsoleted lifecycle event"""
+    # IObjectObsoletedEvent should be triggered before deleting object from
+    # datastore.
